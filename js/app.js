@@ -1,7 +1,7 @@
 // Inicialização do SDK do Facebook
 window.fbAsyncInit = function() {
   FB.init({
-    appId      : 'SEU_APP_ID_AQUI', // Substitua pelo seu App ID real
+    appId      : 9813854598694394, // Substitua pelo seu App ID real
     cookie     : true,
     xfbml      : true,
     version    : 'v18.0' // Use a versão mais recente do SDK
