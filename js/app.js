@@ -4,7 +4,7 @@ const FB_APP_ID = "9813854598694394"; // Substitua pelo seu App ID do Facebook
 // Inicializar o SDK do Facebook
 window.fbAsyncInit = function () {
   FB.init({
-    appId: FB_APP_ID,
+    appId: 9813854598694394,
     cookie: true,
     xfbml: true,
     version: "v18.0", // Use a versão mais recente disponível
