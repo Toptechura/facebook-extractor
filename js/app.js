@@ -37,11 +37,9 @@ function statusChangeCallback(response) {
 
 // Função para realizar o login
 function loginWithFacebook() {
-  console.log("Tentando login com Facebook...");
   FB.login(function(response) {
-    console.log("Resposta do login:", response);
     statusChangeCallback(response);
-  }, {scope: 'public_profile,email,user_friends'});
+  }, {scope: 'public_profile,email'}); // Remova user_friends
 }
 
 // Função para obter informações do usuário
