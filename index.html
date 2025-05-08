@@ -1,75 +1,46 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Extrator de Contatos do Facebook</title>
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
-  <body>
-    <div class="container">
-      <h1>Extrator de Contatos do Facebook</h1>
-      <p>Ferramenta para extrair contatos de grupos e páginas do Facebook.</p>
+<html>
+<head>
+  <title>Facebook Extractor</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    button {
+      background-color: #1877F2;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background-color: #166FE5;
+    }
+    #status {
+      margin-top: 20px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      min-height: 50px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Facebook Extractor</h1>
+  <p>Use o botão abaixo para fazer login com sua conta do Facebook.</p>
+  
+  <button onclick="loginWithFacebook()">Login com Facebook</button>
+  <div id="status">Status do login aparecerá aqui...</div>
 
-      <div id="fb-login-button" class="button-container">
-        <button onclick="loginWithFacebook()">Login com Facebook</button>
-      </div>
-
-      <div id="extraction-form" style="display: none">
-        <h2>Extrair Contatos</h2>
-
-        <div class="form-group">
-          <label for="groupUrl">URL do Grupo ou Página:</label>
-          <input
-            type="text"
-            id="groupUrl"
-            placeholder="https://www.facebook.com/groups/..."
-          />
-        </div>
-
-        <div class="form-group">
-          <label for="dataType">Tipo de Dados:</label>
-          <select id="dataType">
-            <option value="members">Membros do Grupo</option>
-            <option value="admins">Administradores do Grupo</option>
-            <option value="followers">Seguidores da Página</option>
-          </select>
-        </div>
-
-        <div class="button-container">
-          <button onclick="startExtraction()">Iniciar Extração</button>
-        </div>
-      </div>
-
-      <div id="results" style="display: none">
-        <h2>Resultados</h2>
-        <div class="button-container">
-          <button onclick="downloadCSV()">Baixar CSV</button>
-          <button onclick="copyToClipboard()">
-            Copiar para Área de Transferência
-          </button>
-        </div>
-        <div id="statusMessage"></div>
-        <div id="contactsCount"></div>
-        <textarea id="contactsData" rows="10" readonly></textarea>
-      </div>
-
-      <footer>
-        <p>
-          Este aplicativo respeita os
-          <a href="terms-of-service.html">Termos de Serviço</a> e a
-          <a href="privacy-policy.html">Política de Privacidade</a>.
-        </p>
-        <p>
-          © 2024 Extrator de Contatos do Facebook. Todos os direitos reservados.
-        </p>
-      </footer>
-    </div>
-
-    <!-- Carregamento do SDK do Facebook -->
-    <script
-      <script async defer crossorigin="anonymous" src="https://connect.facebook.net/pt_BR/sdk.js"></script>
-    ></script>
-    <script src="js/app.js"></script>
-  </body>
+  <!-- Carregue o seu arquivo JavaScript DEPOIS do HTML -->
+  <script src="app.js"></script>
+</body>
 </html>
