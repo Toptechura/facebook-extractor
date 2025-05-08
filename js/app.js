@@ -1,5 +1,5 @@
 // Configuração do aplicativo Facebook
-const FB_APP_ID = "SEU_APP_ID_AQUI"; // Substitua pelo seu App ID do Facebook
+const FB_APP_ID = "9813854598694394"; // Substitua pelo seu App ID do Facebook
 
 // Inicializar o SDK do Facebook
 window.fbAsyncInit = function () {
