@@ -4,7 +4,7 @@ window.fbAsyncInit = function() {
     appId      : 9813854598694394, // Substitua pelo seu App ID real
     cookie     : true,
     xfbml      : true,
-    version    : 'v18.0' // Use a versão mais recente do SDK
+    version    : 'v18.0'
   });
     
   FB.AppEvents.logPageView();
@@ -41,7 +41,7 @@ function loginWithFacebook() {
   FB.login(function(response) {
     console.log("Resposta do login:", response);
     statusChangeCallback(response);
-  }, {scope: 'public_profile,email'});
+  }, {scope: 'public_profile,email,user_friends'});
 }
 
 // Função para obter informações do usuário
@@ -49,5 +49,26 @@ function getUserInfo() {
   FB.api('/me', {fields: 'name,email'}, function(response) {
     console.log("Informações do usuário recebidas:", response);
     document.getElementById('status').innerHTML = 'Olá, ' + response.name + '!';
+  });
+}
+
+// Função para obter lista de amigos (requer permissão user_friends)
+function getFriendsList() {
+  FB.api('/me/friends', function(response) {
+    console.log("Resposta da lista de amigos:", response);
+    var friendsList = document.getElementById('friends-list');
+    
+    if (response && response.data && response.data.length > 0) {
+      var html = '<h2>Seus amigos que usam este aplicativo:</h2><ul>';
+      
+      for (var i = 0; i < response.data.length; i++) {
+        html += '<li class="friend-item">' + response.data[i].name + '</li>';
+      }
+      
+      html += '</ul>';
+      friendsList.innerHTML = html;
+    } else {
+      friendsList.innerHTML = '<h2>Lista de amigos</h2><p>Nenhum de seus amigos está usando este aplicativo ainda.</p>';
+    }
   });
 }
