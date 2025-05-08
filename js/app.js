@@ -33,12 +33,9 @@ function statusChangeCallback(response) {
 
 // Função para realizar login no Facebook
 function loginWithFacebook() {
-  FB.login(
-    function (response) {
-      statusChangeCallback(response);
-    },
-    { scope: "public_profile,email,user_friends" }
-  );
+  FB.login(function(response) {
+    statusChangeCallback(response);
+}, {scope: 'public_profile,email'});
 }
 
 // Função para iniciar a extração de contatos
